@@ -71,10 +71,10 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         var position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude)
         var marker = GMSMarker(position: position)
         reverseGeocodeCoordinate(coordinate)
-        if address.count > 1 {
-            marker.title = address[0]
-            marker.snippet = address[1]
-        }
+//        if address.count > 1 {
+//            marker.title = address[0]
+//            marker.snippet = address[1]
+//        }
         destinationLocation = coordinate
         isMarkerDown = true
         marker.map = mapView
