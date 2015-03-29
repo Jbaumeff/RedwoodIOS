@@ -46,7 +46,7 @@
             </objects>
             <point key="canvasLocation" x="155" y="14"/>
         </scene>
-        <!--Results-->
+        <!--Walk or Bus-->
         <scene sceneID="GN8-lW-Ivw">
             <objects>
                 <viewController id="ei8-tl-DO6" customClass="WalkBusViewController" customModule="SpartaNow" customModuleProvider="target" sceneMemberID="viewController">
@@ -76,7 +76,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Calculating..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="xkT-bM-JZR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Calculating..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xkT-bM-JZR">
                                         <rect key="frame" x="195" y="120" width="397" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,7 +88,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Calculating..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="3iv-60-a1y">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Calculating..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="3iv-60-a1y">
                                         <rect key="frame" x="150" y="194" width="442" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,7 +135,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Calculating..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="0Tz-wu-fA5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Calculating..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="0Tz-wu-fA5">
                                         <rect key="frame" x="195" y="120" width="397" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -147,7 +147,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Calculating..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="kCE-Ay-Pv7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" text="Calculating..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="kCE-Ay-Pv7">
                                         <rect key="frame" x="150" y="194" width="442" height="66"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -189,14 +189,20 @@
                             <constraint firstItem="emq-Pn-xGO" firstAttribute="bottom" secondItem="55d-1v-gKX" secondAttribute="top" id="sQt-k2-XGg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Results" id="Vft-bB-LRb"/>
+                    <navigationItem key="navigationItem" title="Walk or Bus" id="Vft-bB-LRb"/>
                     <connections>
+                        <outlet property="arrivalLabel" destination="jEB-3f-n6R" id="f6r-bq-ZrC"/>
                         <outlet property="bottomArrival" destination="kCE-Ay-Pv7" id="YP8-KZ-8ot"/>
                         <outlet property="bottomDuration" destination="0Tz-wu-fA5" id="yMC-YA-hfn"/>
                         <outlet property="bottomView" destination="emq-Pn-xGO" id="hL0-sD-8Be"/>
-                        <outlet property="topArrival" destination="3iv-60-a1y" id="jqv-x7-BMK"/>
-                        <outlet property="topDuration" destination="xkT-bM-JZR" id="E64-HI-xyN"/>
+                        <outlet property="busLabel" destination="gtX-X6-klv" id="b8a-9g-hrb"/>
+                        <outlet property="durationLabel" destination="eEb-x4-xOU" id="GZr-qd-ObN"/>
+                        <outlet property="topArrival" destination="3iv-60-a1y" id="j8u-lB-D1s"/>
+                        <outlet property="topArrivalLabel" destination="GAR-7T-tBZ" id="QQR-ld-Gp7"/>
+                        <outlet property="topDuration" destination="xkT-bM-JZR" id="YNi-Oj-QbP"/>
+                        <outlet property="topDurationLabel" destination="py2-lh-RWR" id="s5x-j6-u27"/>
                         <outlet property="topView" destination="kyo-Vi-abE" id="dW4-vx-bdZ"/>
+                        <outlet property="walkLabel" destination="InK-tH-GcC" id="PF6-OW-KJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yj-7G-ueW" userLabel="First Responder" sceneMemberID="firstResponder"/>

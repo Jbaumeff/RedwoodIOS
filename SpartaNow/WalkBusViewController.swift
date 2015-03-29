@@ -16,6 +16,12 @@ class WalkBusViewController: UIViewController, NSURLConnectionDelegate {
     @IBOutlet weak var topArrival: UILabel!
     @IBOutlet weak var bottomDuration: UILabel!
     @IBOutlet weak var bottomArrival: UILabel!
+    @IBOutlet weak var busLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var arrivalLabel: UILabel!
+    @IBOutlet weak var walkLabel: UILabel!
+    @IBOutlet weak var topDurationLabel: UILabel!
+    @IBOutlet weak var topArrivalLabel: UILabel!
     var data = NSMutableData()
     var userLocation: CLLocationCoordinate2D!
     var destinationLocation: CLLocationCoordinate2D!
@@ -53,12 +59,15 @@ class WalkBusViewController: UIViewController, NSURLConnectionDelegate {
     
     func updateUI(json: NSDictionary) {
         if json["status"] as String == "OK" {
+            
             let busDuration = json["bus_duration"] as Int
             let walkDuration = json["walk_duration"] as Int
+            let busNumber = json["first_bus"] as Int
             bottomDuration.text = "\(busDuration / 60) min \(busDuration % 60) secs"
             topDuration.text = "\(walkDuration / 60) min \(walkDuration % 60) secs"
+            busLabel.text = "Bus #\(busNumber)"
             
-            if walkDuration <= busDuration {
+            if walkDuration <= busDuration || busNumber == -1 {
                 self.view.backgroundColor = bestColor
                 topView.backgroundColor = bestColor
                 bottomView.backgroundColor = worstColor
@@ -81,11 +90,31 @@ class WalkBusViewController: UIViewController, NSURLConnectionDelegate {
             hour = components.hour
             minutes = components.minute
             topArrival.text = formatTime(hour, min: minutes)
+            
+            if busNumber == -1 {
+                busLabel.text = "No Bus"
+                durationLabel.text = ""
+                arrivalLabel.text = ""
+                bottomArrival.text = ""
+                bottomDuration.text = ""
+            }
+
         } else {
-            bottomDuration.text = "Unable to reach server"
-            bottomArrival.text = "Go back and try again"
-            topDuration.text = "Unable to reach server"
-            topArrival.text = "Go back and try again"
+            bottomDuration.text = ""
+            bottomArrival.text = ""
+            arrivalLabel.text = ""
+            durationLabel.text = ""
+            walkLabel.font = UIFont(name: busLabel.font.fontName, size: 80)
+            walkLabel.text = "Try Again"
+            busLabel.text = ""
+            topDuration.text = ""
+            topArrival.text = ""
+            topDurationLabel.text = ""
+            topArrivalLabel.text = ""
+            topArrival.text = ""
+            topDuration.text = ""
+            topView.backgroundColor = worstColor
+            self.view.backgroundColor = worstColor
         }
 
     }
@@ -95,6 +124,9 @@ class WalkBusViewController: UIViewController, NSURLConnectionDelegate {
         let minute = min < 10 ? "0\(min)" : "\(min)"
         if hour > 12 {
             hour = hour - 12
+        }
+        if hour == 0 {
+            hour = 12
         }
         return "\(hour):\(minute) \(pm)"
     }
